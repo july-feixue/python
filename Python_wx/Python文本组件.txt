@@ -1,0 +1,77 @@
+wx.TextCtrl（文本输入控件）的参数有：
+
+wx.TextCtrl(parent,id,value="",pos=wx.DefaultPosition,size=wx.DefaultSize,
+
+style=0,validator=wx.DefaultValidator,name=wx.TextCtrlNameStr)
+
+ 
+
+value: 文本框中的初始文本。
+
+validator:过滤数据以确保键入的数据有效。
+
+****************************************************************
+
+///
+
+style参数的可选值：
+
+   wx.TE_CENTER:输入框中的文本居中对齐。
+
+   wx.TE_LEFT:左对齐，默认行为。
+
+   wx.TE_RIGHT:右对齐。
+
+   wx.TE_PASSWORD:不显示输入的文本，以星号遮掩。
+
+   wx.TE_PROCESS_ENTER:输入框中按回车键将触发事件，否则由窗体控制输入框数据。
+
+   wx.TE_NOHIDSEL:文本始终高亮显示，只适用于Windows。
+
+   wx.TE_PROCESS_TAB:输入框接受制表符，否则由窗体控制TAB切换焦点。
+
+   wx.TE_READONLY:输入框的内容为只读，用户不能修改其中的内容。
+
+///
+
+ 
+
+==============在不输入的情况下如何修改文本框的内容===============
+
+适用于：
+
+     ①style=wx.TE_READONLY模式
+
+     ②根据事件而非用户键盘输入来改变文本框内容
+
+AppendText(str):尾部添加
+
+Clear():清空输入框为"",并生成文本更新事件。
+
+EmulateKeyPress(event):产生一个按键事件，插入与事件相符的控制符，就如同
+
+                       按了该按键一样。
+
+GetInsertionPoint()：得到插入点位置，结果为Int型
+
+SetInsertionPoint(pos): pos为整型索引值，0为开始位置
+
+SetInsertionPointEnd(): 从结尾插入
+
+GetRange(from,to):返回输入框中位置索引从from到to范围内的字符串
+
+GetSelection()：以元组的形式返回当前输入框文本位置的索引范围（开始，结束）。
+
+GetStringSelection()：得到选择的字符串。
+
+SetSelection(from,to):按指定索引范围(from,to)设置选择的文本。
+
+GetValue():返回控件中的字符串。
+
+SetValue():覆盖控件中的文本。
+
+Remove(from,to):删除指定范围的文本。
+
+Replace(from,to,value):用指定值替换从from到to范围的文本。
+
+WriteText(str):效果同AppendText(),只是从当前插入点开始插入。
